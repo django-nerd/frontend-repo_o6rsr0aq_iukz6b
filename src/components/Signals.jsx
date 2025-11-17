@@ -25,13 +25,13 @@ export default function Signals(){
           <p className="text-sm text-slate-600">Quick sliders. Snapshot the day.</p>
         </header>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+          <div className="xo-card p-6 bg-white">
             <h3 className="font-medium text-slate-900 mb-4">Performance</h3>
             <div className="space-y-5">
               {performance.map(k=> <Slider key={k} label={k} />)}
             </div>
           </div>
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+          <div className="xo-card p-6 bg-white">
             <h3 className="font-medium text-slate-900 mb-4">Recovery</h3>
             <div className="space-y-5">
               {recovery.map(k=> <Slider key={k} label={k} />)}
@@ -39,7 +39,7 @@ export default function Signals(){
           </div>
         </div>
         <div className="mt-6">
-          <button className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-cyan-600 text-white text-sm">Save</button>
+          <button className="xo-btn xo-btn-secondary">Save</button>
         </div>
       </div>
     </section>

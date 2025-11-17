@@ -5,7 +5,7 @@ export default function Footer(){
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm">
           <div className="col-span-2 md:col-span-2">
             <div className="font-semibold tracking-tight text-slate-900">AmazingXO</div>
-            <p className="mt-3 text-slate-600 max-w-sm">No noise. No confusion. Just performance. A clean console for owners to monitor, adjust, and execute.</p>
+            <p className="mt-3 text-slate-600 max-w-sm">Refined control. Quiet power. A premium console for owners to monitor, adjust, and execute.</p>
           </div>
           <div>
             <div className="font-medium text-slate-900">App</div>

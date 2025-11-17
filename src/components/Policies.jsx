@@ -8,9 +8,9 @@ export default function Policies(){
     <section className="py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6">
         {items.map((i)=> (
-          <article key={i.key} className="rounded-2xl border border-black/10 p-6 bg-white">
-            <h3 className="text-lg font-semibold">{i.title}</h3>
-            <p className="mt-2 text-sm text-black/70">{i.body}</p>
+          <article key={i.key} className="xo-card p-6 bg-white">
+            <h3 className="text-lg font-semibold text-slate-900">{i.title}</h3>
+            <p className="mt-2 text-sm text-slate-700">{i.body}</p>
           </article>
         ))}
       </div>

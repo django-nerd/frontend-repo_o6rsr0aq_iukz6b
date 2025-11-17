@@ -12,11 +12,11 @@ export default function Protocols(){
           <p className="text-sm text-slate-600">Two tracks. Pick what you need. Adjust as you go.</p>
         </header>
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+          <div className="xo-card p-6 bg-white">
             <h3 className="font-medium text-slate-900">Performance</h3>
             <div className="mt-3 flex flex-wrap gap-2">{perf.map(p=> <Pill key={p}>{p}</Pill>)}</div>
           </div>
-          <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+          <div className="xo-card p-6 bg-white">
             <h3 className="font-medium text-slate-900">Recovery</h3>
             <div className="mt-3 flex flex-wrap gap-2">{rec.map(p=> <Pill key={p}>{p}</Pill>)}</div>
           </div>

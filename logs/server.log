@@ -3,13 +3,13 @@
 > vite
 
 
-  VITE v5.4.20  ready in 212 ms
+  VITE v5.4.20  ready in 203 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.4.238:3000/
-2:43:05 AM [vite] Pre-transform error: Transform failed with 1 error:
+2:54:33 AM [vite] Pre-transform error: Transform failed with 1 error:
 /home/workspace/src/components/Dashboard.jsx:4:50: ERROR: Unexpected "]"
-2:43:05 AM [vite] Internal server error: Transform failed with 1 error:
+2:54:33 AM [vite] Internal server error: Transform failed with 1 error:
 /home/workspace/src/components/Dashboard.jsx:4:50: ERROR: Unexpected "]"
   Plugin: vite:esbuild
   File: /home/workspace/src/components/Dashboard.jsx:4:50
@@ -32,7 +32,7 @@
       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
       at Readable.push (node:internal/streams/readable:390:5)
       at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
-2:43:24 AM [vite] Internal server error: Transform failed with 1 error:
+2:54:55 AM [vite] Internal server error: Transform failed with 1 error:
 /home/workspace/src/components/Dashboard.jsx:4:50: ERROR: Unexpected "]"
   Plugin: vite:esbuild
   File: /home/workspace/src/components/Dashboard.jsx:4:50

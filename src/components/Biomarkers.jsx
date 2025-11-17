@@ -24,7 +24,7 @@ export default function Biomarkers(){
           <h1 className="text-2xl font-semibold text-slate-900">Biomarkers</h1>
           <p className="text-sm text-slate-600">Track the core set. Keep it clean.</p>
         </header>
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+        <div className="overflow-hidden xo-card">
           <table className="min-w-full divide-y divide-slate-200">
             <thead className="bg-slate-50">
               <tr>
@@ -53,8 +53,8 @@ export default function Biomarkers(){
           </table>
         </div>
         <div className="mt-4 flex gap-3">
-          <button className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-indigo-600 text-white text-sm">Save</button>
-          <button className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-slate-200 text-sm text-slate-900">Export</button>
+          <button className="xo-btn xo-btn-primary">Save</button>
+          <button className="xo-btn xo-btn-quiet">Export</button>
         </div>
       </div>
     </section>

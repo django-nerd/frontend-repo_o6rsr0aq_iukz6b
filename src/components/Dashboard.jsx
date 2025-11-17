@@ -1,27 +1,21 @@
-import { useEffect, useState } from 'react'
-import { Activity, Zap, Gauge, ShieldCheck, Cpu, Truck, Link2 } from 'lucide-react'
-
-const API = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
+import { useState } from 'react'
 
 export default function Dashboard() {
-  const [brand, setBrand] = useState(null)
-  const [protocols, setProtocols] = useState({ performance: [], recovery: [] })
-  const [insights, setInsights] = useState({ insights: [] })
-  const demoEmail = 'owner@amazingxo.com'
+  const [insights, setInsights] = useState<string[]>([] as unknown as string[])
 
-  useEffect(() => {
-    fetch(`${API}/api/brand`).then(r=>r.json()).then(setBrand)
-    fetch(`${API}/api/protocols`).then(r=>r.json()).then(setProtocols)
-  }, [])
+  const sampleInsights = [
+    'Hold: Capacity 72. Keep cadence. Hydrate early.',
+    'Adjust: Sleep pressure is high. Pull evening screen time 60 minutes earlier.',
+    'Add: Electrolytes on training days. 1 packet. Mid-session.',
+  ]
 
-  const getInsights = async () => {
-    const res = await fetch(`${API}/api/ai/insights`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ owner_email: demoEmail })
-    })
-    const data = await res.json()
-    setInsights(data)
+  const getInsights = () => {
+    setInsights(sampleInsights)
+  }
+
+  const protocols = {
+    performance: ['Energy', 'Lean', 'Hormones', 'Libido'],
+    recovery: ['Focus', 'Menopause', 'Relieve', 'Skin'],
   }
 
   return (
@@ -29,37 +23,37 @@ export default function Dashboard() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
-            <div className="rounded-2xl border border-black/10 p-6 bg-white">
+            <div className="rounded-2xl border border-slate-200 p-6 bg-white">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">Performance Console</h3>
-                <button onClick={getInsights} className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-black text-white text-sm">
-                  <Cpu size={16}/> AI Insights
+                <h3 className="text-lg font-semibold text-slate-900">Performance Console</h3>
+                <button onClick={getInsights} className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-slate-900 text-white text-sm">
+                  AI Insights
                 </button>
               </div>
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
-                <Tile icon={<Activity size={16}/>} title="Data" desc="Biomarkers"/>
-                <Tile icon={<Zap size={16}/>} title="Performance" desc="Capacity, Power, Speed, Pressure, Efficiency"/>
-                <Tile icon={<ShieldCheck size={16}/>} title="Recovery" desc="Inflammation, Fatigue, Electrolytes, Lymphatic, Glycogen"/>
-                <Tile icon={<Truck size={16}/>} title="Shipments" desc="Kits and prescriptions"/>
+                <Tile title="Data" desc="Biomarkers" />
+                <Tile title="Performance" desc="Capacity, Power, Speed, Pressure, Efficiency" />
+                <Tile title="Recovery" desc="Inflammation, Fatigue, Electrolytes, Lymphatic, Glycogen" />
+                <Tile title="Shipments" desc="Kits and prescriptions" />
               </div>
-              {insights.insights?.length > 0 && (
-                <ul className="mt-6 space-y-2 text-sm text-black/80 list-disc pl-6">
-                  {insights.insights.map((i, idx) => (<li key={idx}>{i}</li>))}
+              {insights.length > 0 && (
+                <ul className="mt-6 space-y-2 text-sm text-slate-800 list-disc pl-6">
+                  {insights.map((i, idx) => (<li key={idx}>{i}</li>))}
                 </ul>
               )}
             </div>
 
-            <div className="rounded-2xl border border-black/10 p-6 bg-white">
-              <h3 className="text-lg font-semibold">Protocols</h3>
+            <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+              <h3 className="text-lg font-semibold text-slate-900">Protocols</h3>
               <div className="mt-4 grid sm:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-medium">Performance</h4>
+                  <h4 className="font-medium text-slate-900">Performance</h4>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {protocols.performance.map(p => <Pill key={p} label={p}/> )}
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium">Recovery</h4>
+                  <h4 className="font-medium text-slate-900">Recovery</h4>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {protocols.recovery.map(p => <Pill key={p} label={p}/> )}
                   </div>
@@ -69,17 +63,17 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-2xl border border-black/10 p-6 bg-white">
-              <h3 className="text-lg font-semibold">Membership</h3>
-              <p className="mt-2 text-sm text-black/70">Access Fee — $25/month</p>
-              <p className="text-sm text-black/70">Performance Membership — $1,497/month</p>
+            <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+              <h3 className="text-lg font-semibold text-slate-900">Membership</h3>
+              <p className="mt-2 text-sm text-slate-700">Access Fee — $25/month</p>
+              <p className="text-sm text-slate-700">Performance Membership — $1,497/month</p>
             </div>
-            <div className="rounded-2xl border border-black/10 p-6 bg-white">
-              <h3 className="text-lg font-semibold">Integrations</h3>
+            <div className="rounded-2xl border border-slate-200 p-6 bg-white">
+              <h3 className="text-lg font-semibold text-slate-900">Integrations</h3>
               <div className="mt-2 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-black text-white text-xs"><Link2 size={12}/> Stripe</span>
-                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-black text-white text-xs"><Link2 size={12}/> Apple Health</span>
-                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-black text-white text-xs"><Link2 size={12}/> Google Fit</span>
+                <span className="inline-flex items-center px-2 py-1 rounded-full bg-slate-900 text-white text-xs">Stripe</span>
+                <span className="inline-flex items-center px-2 py-1 rounded-full bg-slate-900 text-white text-xs">Apple Health</span>
+                <span className="inline-flex items-center px-2 py-1 rounded-full bg-slate-900 text-white text-xs">Google Fit</span>
               </div>
             </div>
           </div>
@@ -89,15 +83,15 @@ export default function Dashboard() {
   )
 }
 
-function Tile({ icon, title, desc }) {
+function Tile({ title, desc }) {
   return (
-    <div className="rounded-xl border border-black/10 p-4">
-      <div className="flex items-center gap-2 text-sm font-medium">{icon} {title}</div>
-      <div className="mt-2 text-xs text-black/70">{desc}</div>
+    <div className="rounded-xl border border-slate-200 p-4">
+      <div className="text-sm font-medium text-slate-900">{title}</div>
+      <div className="mt-2 text-xs text-slate-600">{desc}</div>
     </div>
   )
 }
 
 function Pill({ label }) {
-  return <span className="inline-flex items-center px-3 py-1 rounded-full border border-black/10 text-sm">{label}</span>
+  return <span className="inline-flex items-center px-3 py-1 rounded-full border border-slate-200 text-sm text-slate-900">{label}</span>
 }

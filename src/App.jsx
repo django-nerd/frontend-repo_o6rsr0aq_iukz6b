@@ -1,34 +1,32 @@
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Pricing from './components/Pricing'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Layout from './components/Layout'
 import Dashboard from './components/Dashboard'
+import Biomarkers from './components/Biomarkers'
+import Signals from './components/Signals'
+import Protocols from './components/Protocols'
 import Policies from './components/Policies'
 import Profile from './components/Profile'
-
-function Home(){
-  return (
-    <main>
-      <Hero />
-      <Pricing />
-    </main>
-  )
-}
+import Shipments from './components/Shipments'
+import Integrations from './components/Integrations'
+import Footer from './components/Footer'
 
 export default function App(){
   return (
-    <div className="min-h-screen bg-white text-black">
-      <Navbar />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/policies" element={<Policies />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-      <footer className="border-t border-black/10 py-8 mt-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-black/60">AmazingXO — Just Performance.</div>
-      </footer>
+    <div className="min-h-screen bg-white text-slate-900">
+      <Layout>
+        <Routes>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/biomarkers" element={<Biomarkers />} />
+          <Route path="/signals" element={<Signals />} />
+          <Route path="/protocols" element={<Protocols />} />
+          <Route path="/shipments" element={<Shipments />} />
+          <Route path="/integrations" element={<Integrations />} />
+          <Route path="/policies" element={<Policies />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+        <Footer />
+      </Layout>
     </div>
   )
 }
